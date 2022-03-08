@@ -1,5 +1,12 @@
-# dailyplanner
+# Daily Planner
 
-The ability to add a line of text to your time and have it save the data when you click on "save" button.
+## View page at: https://starbrjonx.github.io/dayplanner/
 
-The issues I was having was the layout of the website and then being able to understand how to pull data from a local storage system. I needed to have a way to capture the data and display it.
+## How to use:
+
+Load the link above in a browser, once there you will notice Time Block which are color coded, based on if it's past, present, or future vs real local time.
+
+Click into the colored section and begin to type out your todos.
+Clicking a "Save" button will save the text in a timeblock and to the localStorage.
+
+![Preview Image](/assets/images/Page_Preview.png.gif)
