@@ -10,7 +10,7 @@ for (let i = 0; i < 10; i++) {
   $(".container").append("<div class='time-block row'>");
 }
 
-// adding divs and their styles.
+// adding divs and their styles. as well as the textareas where you can have user input their todos.
 
 $(".time-block")
   .append("<div class = 'hour'>")
@@ -23,37 +23,37 @@ $("textarea").css("width", "82%");
 
 $(".saveBtn").css("width", "9%");
 
-var hourDivEls = $(".time-block").children(".hour");
-var textAreaEls = $(".time-block").children("textarea");
+var hourDiv = $(".time-block").children(".hour");
+var textArea = $(".time-block").children("textarea");
 
-for (let i = 0; i < hourDivEls.length; i++) {
+for (let i = 0; i < hourDiv.length; i++) {
   var hourInterate = moment()
     .set("hour", i + 9)
     .format("ha");
 
   console.log(
-    "index is " + hourInterate + " and current time is " + currentHour12
+    "index is " + hourInt + " and current time is " + currentHour12
   );
 
-  hourDivEls[i].append(hourInterate);
+  hourDivEls[i].append(hourInt);
 
-  $("<p>").text(hourInterate);
+  $("<p>").text(hourInt);
 
-  if (hourInterate > currentHour12) {
-    $(textAreaEls[i]).addClass("future");
-  } else if (hourInterate < currentHour12) {
-    $(textAreaEls[i]).addClass("past");
+  if (hourInt > currentHour12) {
+    $(textArea[i]).addClass("future");
+  } else if (hourInt < currentHour12) {
+    $(textArea[i]).addClass("past");
   } else {
-    $(textAreaEls[i]).addClass("present");
+    $(textArea[i]).addClass("present");
   }
 }
 
 function formatSaveButtons() {
   // Save button and Local Storage
 
-  var timeBlockEls = $(".time-block");
+  var timeBlock = $(".time-block");
 
-  timeBlockEls.on("click", ".saveBtn", function (event) {
+  timeBlock.on("click", ".saveBtn", function (event) {
     event.preventDefault();
 
     let myTarget = $(event.target);
