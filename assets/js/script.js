@@ -10,7 +10,7 @@ for (let i = 0; i < 10; i++) {
   $(".container").append("<div class='time-block row'>");
 }
 
-// adding divs and their styles. as well as the textareas where you can have user input their todos.
+// adding divs and their styles.
 
 $(".time-block")
   .append("<div class = 'hour'>")
@@ -23,37 +23,37 @@ $("textarea").css("width", "82%");
 
 $(".saveBtn").css("width", "9%");
 
-var hourDiv = $(".time-block").children(".hour");
-var textArea = $(".time-block").children("textarea");
+var hourDivEls = $(".time-block").children(".hour");
+var textAreaEls = $(".time-block").children("textarea");
 
-for (let i = 0; i < hourDiv.length; i++) {
-  var hourInt = moment()
+for (let i = 0; i < hourDivEls.length; i++) {
+  var hourInterate = moment()
     .set("hour", i + 9)
     .format("ha");
 
   console.log(
-    "index is " + hourInt + " and current time is " + currentHour12
+    "index is " + hourInterate + " and current time is " + currentHour12
   );
 
-  hourDiv[i].append(hourInt);
+  hourDivEls[i].append(hourInterate);
 
-  $("<p>").text(hourInt);
+  $("<p>").text(hourInterate);
 
-  if (hourInt > currentHour12) {
-    $(textArea1[i]).addClass("future");
-  } else if (hourInt < currentHour12) {
-    $(textArea1[i]).addClass("past");
+  if (hourInterate > currentHour12) {
+    $(textAreaEls[i]).addClass("future");
+  } else if (hourInterate < currentHour12) {
+    $(textAreaEls[i]).addClass("past");
   } else {
-    $(textArea1[i]).addClass("present");
+    $(textAreaEls[i]).addClass("present");
   }
 }
 
 function formatSaveButtons() {
   // Save button and Local Storage
 
-  var timeBlock = $(".time-block");
+  var timeBlockEls = $(".time-block");
 
-  timeBlock.on("click", ".saveBtn", function (event) {
+  timeBlockEls.on("click", ".saveBtn", function (event) {
     event.preventDefault();
 
     let myTarget = $(event.target);
@@ -78,12 +78,12 @@ function recoverLocalStorage() {
     JSON.parse(localStorage.getItem("7pm")),
   ];
 
-  let textArea1 = $("textarea");
-  console.log(textArea1);
+  let textArea = $("textarea");
+  console.log(textArea);
 
   for (let i = 0; i < 10; i++) {
     if (storageArray[i] != null) {
-      textArea1[i].append(storageArray[i]);
+      textArea[i].append(storageArray[i]);
     }
   }
 }
@@ -92,3 +92,4 @@ createTimeBlocks();
 formatTimeBlocks();
 formatSaveButtons();
 recoverLocalStorage();
+
