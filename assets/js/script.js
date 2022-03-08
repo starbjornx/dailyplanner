@@ -50,35 +50,17 @@ function formatSaveButtons() {
   // Save button and Local Storage
 
   var els2 = $(".time-block");
-
-  
-  saveBtn.on('click', function (event) {
+  els2.on("click", ".saveBtn", function (event) {
     event.preventDefault();
-    var todoText = $(this).siblings(".description").val();
-    if (todoText === ""){
-        return;
-    }
-    
-    localStorage.setItem(($(this).parent().attr("data-number")), todoText);
-    renderTodos ();
-    
-    renderTodos();
-  
-  
-  
-  
-  
-//   els2.on("click", ".saveBtn", function (event) {
-//     event.preventDefault();
 
-//     let myTarget = $(event.target);
-//     let myText = myTarget.parent().children("textarea").val();
-//     let thisHour = myTarget.parent().children(".hour").text();
+    let myTarget = $(event.target);
+    let myText = myTarget.parent().children("textarea").val();
+    let thisHour = myTarget.parent().children(".hour").text();
 
-//     localStorage.setItem(thisHour, JSON.stringify(myText));
-//   });
+    localStorage.setItem(thisHour, JSON.stringify(myText));
+  });
 }
-//local storage
+//creating the local storage and finalizing the creating of the time blocks
 function recoverLocalStorage() {
   let storageArray = [
     JSON.parse(localStorage.getItem("10am")),
