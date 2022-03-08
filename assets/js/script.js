@@ -1,4 +1,4 @@
-//Identify my Vars
+// decalre my Vars
 var now = moment();
 var currentHour24 = moment().format("H");
 var currentHour12 = moment().format("ha");
@@ -6,12 +6,12 @@ var amOrPm = moment().format("a");
 
 $("#currentDay").text("Today is " + now.format("dddd, MMMM Do, YYYY"));
 
+//Time blocks
 for (let i = 0; i < 10; i++) {
   $(".container").append("<div class='time-block row'>");
 }
 
-// adding divs and their styles.
-
+//Created style for the save button
 $(".time-block")
   .append("<div class = 'hour'>")
   .append("<textarea>")
@@ -51,9 +51,9 @@ for (let i = 0; i < hourDivEls.length; i++) {
 function formatSaveButtons() {
   // Save button and Local Storage
 
-  var timeBlockEls = $(".time-block");
+  var els2 = $(".time-block");
 
-  timeBlockEls.on("click", ".saveBtn", function (event) {
+  els2.on("click", ".saveBtn", function (event) {
     event.preventDefault();
 
     let myTarget = $(event.target);
@@ -78,12 +78,12 @@ function recoverLocalStorage() {
     JSON.parse(localStorage.getItem("7pm")),
   ];
 
-  let textArea = $("textarea");
-  console.log(textArea);
+  let textAreaEls = $("textarea");
+  console.log(textAreaEls);
 
   for (let i = 0; i < 10; i++) {
     if (storageArray[i] != null) {
-      textArea[i].append(storageArray[i]);
+      textAreaEls[i].append(storageArray[i]);
     }
   }
 }
