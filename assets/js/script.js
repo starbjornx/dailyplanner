@@ -51,15 +51,32 @@ function formatSaveButtons() {
 
   var els2 = $(".time-block");
 
-  els2.on("click", ".saveBtn", function (event) {
+  
+  saveBtn.on('click', function (event) {
     event.preventDefault();
+    var todoText = $(this).siblings(".description").val();
+    if (todoText === ""){
+        return;
+    }
+    
+    localStorage.setItem(($(this).parent().attr("data-number")), todoText);
+    renderTodos ();
+    
+    renderTodos();
+  
+  
+  
+  
+  
+//   els2.on("click", ".saveBtn", function (event) {
+//     event.preventDefault();
 
-    let myTarget = $(event.target);
-    let myText = myTarget.parent().children("textarea").val();
-    let thisHour = myTarget.parent().children(".hour").text();
+//     let myTarget = $(event.target);
+//     let myText = myTarget.parent().children("textarea").val();
+//     let thisHour = myTarget.parent().children(".hour").text();
 
-    localStorage.setItem(thisHour, JSON.stringify(myText));
-  });
+//     localStorage.setItem(thisHour, JSON.stringify(myText));
+//   });
 }
 //local storage
 function recoverLocalStorage() {
