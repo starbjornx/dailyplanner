@@ -40,11 +40,11 @@ for (let i = 0; i < hourDiv.length; i++) {
   $("<p>").text(hourInt);
 
   if (hourInt > currentHour12) {
-    $(textArea[i]).addClass("future");
+    $(textArea1[i]).addClass("future");
   } else if (hourInt < currentHour12) {
-    $(textArea[i]).addClass("past");
+    $(textArea1[i]).addClass("past");
   } else {
-    $(textArea[i]).addClass("present");
+    $(textArea1[i]).addClass("present");
   }
 }
 
@@ -78,12 +78,12 @@ function recoverLocalStorage() {
     JSON.parse(localStorage.getItem("7pm")),
   ];
 
-  let textArea = $("textarea");
-  console.log(textArea);
+  let textArea1 = $("textarea");
+  console.log(textArea1);
 
   for (let i = 0; i < 10; i++) {
     if (storageArray[i] != null) {
-      textArea[i].append(storageArray[i]);
+      textArea1[i].append(storageArray[i]);
     }
   }
 }
