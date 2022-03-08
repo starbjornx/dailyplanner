@@ -2,7 +2,7 @@
 var now = moment();
 var currentHour24 = moment().format("H");
 var currentHour12 = moment().format("ha");
-var amOrPm = moment().format("a");
+var theTime = moment().format("a");
 
 $("#currentDay").text("Today is " + now.format("dddd, MMMM Do, YYYY"));
 
@@ -18,15 +18,13 @@ $(".time-block")
   .append("<button class = 'saveBtn'> Save </button>");
 
 $(".hour").css("width", "9%");
-
 $("textarea").css("width", "82%");
-
 $(".saveBtn").css("width", "9%");
 
-var hourDivEls = $(".time-block").children(".hour");
-var textAreaEls = $(".time-block").children("textarea");
+var hourTime = $(".time-block").children(".hour");
+var theText = $(".time-block").children("textarea");
 
-for (let i = 0; i < hourDivEls.length; i++) {
+for (let i = 0; i < hourTime.length; i++) {
   var hourInterate = moment()
     .set("hour", i + 9)
     .format("ha");
@@ -35,16 +33,16 @@ for (let i = 0; i < hourDivEls.length; i++) {
     "index is " + hourInterate + " and current time is " + currentHour12
   );
 
-  hourDivEls[i].append(hourInterate);
+  hourTime[i].append(hourInterate);
 
   $("<p>").text(hourInterate);
 
   if (hourInterate > currentHour12) {
-    $(textAreaEls[i]).addClass("future");
+    $(theText[i]).addClass("future");
   } else if (hourInterate < currentHour12) {
-    $(textAreaEls[i]).addClass("past");
+    $(theText[i]).addClass("past");
   } else {
-    $(textAreaEls[i]).addClass("present");
+    $(theText[i]).addClass("present");
   }
 }
 
@@ -83,7 +81,7 @@ function recoverLocalStorage() {
 
   for (let i = 0; i < 10; i++) {
     if (storageArray[i] != null) {
-      textAreaEls[i].append(storageArray[i]);
+      theText[i].append(storageArray[i]);
     }
   }
 }
