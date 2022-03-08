@@ -27,7 +27,7 @@ var hourDiv = $(".time-block").children(".hour");
 var textArea = $(".time-block").children("textarea");
 
 for (let i = 0; i < hourDiv.length; i++) {
-  var hourInterate = moment()
+  var hourInt = moment()
     .set("hour", i + 9)
     .format("ha");
 
@@ -35,7 +35,7 @@ for (let i = 0; i < hourDiv.length; i++) {
     "index is " + hourInt + " and current time is " + currentHour12
   );
 
-  hourDivEls[i].append(hourInt);
+  hourDiv[i].append(hourInt);
 
   $("<p>").text(hourInt);
 
