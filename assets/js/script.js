@@ -76,8 +76,8 @@ function recoverLocalStorage() {
     JSON.parse(localStorage.getItem("7pm")),
   ];
 
-  let textAreaEls = $("textarea");
-  console.log(textAreaEls);
+  let theText = $("textarea");
+  console.log(theText);
 
   for (let i = 0; i < 10; i++) {
     if (storageArray[i] != null) {
