@@ -1,6 +1,6 @@
 # Daily Planner
 
-## View page at: https://starbrjonx.github.io/dailyplanner/
+## View page at: https://starbjornx.github.io/dailyplanner/
 
 ## How to use:
 
