@@ -5,12 +5,12 @@ var hour = $(".hour");
 var timeBlock = $(".time-block");
 var description = $(".description");
 var saveBtn = $(".saveBtn");
-
+//allowing data to be added and stored
 function renderTodos() {
   timeBlock.each(function () {
     var dataNumber = parseInt($(this).attr("data-number"));
     var dataText = localStorage.getItem(dataNumber);
-    //console.log(dataNumber);
+    
     console.log(dataText);
     $(this).children("textarea").val(dataText);
   });
@@ -20,7 +20,7 @@ function init() {
 
   renderTodos();
 }
-
+//creating button to allow the save function to work
 saveBtn.on("click", function (event) {
   event.preventDefault();
   var todoText = $(this).siblings(".description").val();
@@ -33,6 +33,8 @@ saveBtn.on("click", function (event) {
 
   renderTodos();
 });
+
+//color coding time blocks
 function colorCode() {
   timeBlock.each(function () {
     var dataNumber = parseInt($(this).attr("data-number"));
