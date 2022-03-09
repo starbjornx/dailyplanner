@@ -2,8 +2,8 @@ var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
 
 var hour = $(".hour");
-var timeBlock = $(".tblock");
-var description = $(".desc");
+var timeBlock = $(".t-block");
+var description = $(".description");
 var saveBtn = $(".saveBtn");
 //allowing data to be added and stored
 function renderTodos() {
