@@ -32,7 +32,7 @@ textarea {
   border-top: 1px dashed #000000;
 }
 
-.description {
+.desc {
   white-space: pre-wrap;
 }
 
@@ -40,7 +40,7 @@ textarea {
   background-color: #d3d3d3;
   color: white;
 }
-.time-block {
+.tblock {
   text-align: center;
   border-radius: 15px;
 }
